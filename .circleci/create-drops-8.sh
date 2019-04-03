@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Exit on errors
+set -e
+
 echo -e "\nKicking off creation for ${SITE_NAME}..."
 
 # login to Terminus
