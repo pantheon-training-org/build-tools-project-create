@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Exit on errors
+set -e
+
 # Bail if required environment variables are missing
 if [ -z "$SITE_NAME" ]
 then
@@ -61,22 +64,18 @@ then
   exit 1
 fi
 
-set -ex
-
-
 # Stash site URLs
 echo "export DEV_URL='https://dev-$SITE_NAME.pantheonsite.io/'" >> $BASH_ENV
 echo "export LIVE_URL='https://live-$SITE_NAME.pantheonsite.io/'" >> $BASH_ENV
 echo 'export PATH=$PATH:$HOME/bin:$HOME/terminus/bin' >> $BASH_ENV
+echo "export CIRCLE_TOKEN='$CIRCLE_TOKEN'" >> $BASH_ENV
+echo "export GITHUB_TOKEN='$GITHUB_TOKEN'" >> $BASH_ENV
 
 source $BASH_ENV
 
 #===========================================
 # End EXPORTing needed environment variables
 #===========================================
-
-# Bail on errors
-set +ex
 
 # Disable host checking
 if [ ! -d $HOME/.ssh ]
