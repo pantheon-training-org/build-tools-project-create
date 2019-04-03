@@ -7,6 +7,12 @@ then
   exit 1
 fi
 
+if [ -z "$STUDENT_PANTHEON_EMAIL" ]
+then
+  echo -e "\nSTUDENT_PANTHEON_EMAIL is not defined, aborting..."
+  exit 1
+fi
+
 if [ -z "$ORG_UUID" ]
 then
   echo -e "\nORG_UUID is not defined, aborting..."

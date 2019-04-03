@@ -37,6 +37,10 @@ terminus build:project:create \
 --ci="circleci" --git="github" \
 --stability=dev pantheon-systems/example-drops-8-composer:dev-master ${SITE_NAME}
 
+# Add the student to the Pantheon site
+echo -e "\nAdding the student to the Pantheon site ${SITE_NAME}."
+terminus site:team:add ${SITE_NAME} ${STUDENT_PANTHEON_EMAIL} team_member
+
 # If we've gotten this far things went well
 echo -e "\n${SITE_NAME} created successfully! Check it out at ${DEV_URL}."
 exit 0
