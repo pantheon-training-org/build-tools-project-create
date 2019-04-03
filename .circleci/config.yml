@@ -1,0 +1,41 @@
+# https://circleci.com/docs/2.0/workflows/#using-workspaces-to-share-data-among-jobs
+defaults: &defaults
+  docker:
+    - image: quay.io/pantheon-public/build-tools-ci:4.x
+  working_directory: ~/build-tools-project-create
+  environment:
+    #=========================================================================
+    # Environment variables not defined in this file
+    # should be defined in the Circle CI UI.
+    #
+    # See: https://circleci.com/docs/2.0/environment-variables/
+    #
+    #=========================================================================
+    TZ: "/usr/share/zoneinfo/America/Los_Angeles"
+    TERM: dumb
+
+version: 2
+jobs:
+    build:
+        <<: *defaults
+        steps:
+            - checkout
+
+            - run:
+                name: declare environment variables
+                command: ./.circleci/set-up-globals.sh
+
+            - run:
+                name: create the site
+                command: ./.circleci/create-drops-8.sh
+                no_output_timeout: 30m
+
+workflows:
+  version: 2
+  commit-workflow:
+    jobs:
+      - build
+    filters:
+      branches:
+        only:
+          - master
