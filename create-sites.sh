@@ -22,9 +22,9 @@ while IFS= read -r SITE_NAME &&
 	echo -e "\nStarting create-drops-8 via API for ${SITE_NAME}..."
 
     curl --user ${CIRCLE_TOKEN}: \
-				--data build_parameters[CIRCLE_JOB]=build \
-				--data build_parameters[SITE_NAME]=$SITE_NAME \
-				--data build_parameters[STUDENT_PANTHEON_EMAIL]=$STUDENT_PANTHEON_EMAIL \
+				--data build_parameters[CIRCLE_JOB]="build" \
+				--data build_parameters[SITE_NAME]="$SITE_NAME" \
+				--data build_parameters[STUDENT_PANTHEON_EMAIL]="$STUDENT_PANTHEON_EMAIL" \
 				https://circleci.com/api/v1.1/project/github/pantheon-training-org/build-tools-project-create/tree/master  >/dev/null
 
 done < <(jq -r '.[] | (.SITE_NAME, .STUDENT_PANTHEON_EMAIL)' < "$(dirname "$pwd")/sites-to-create.json")
