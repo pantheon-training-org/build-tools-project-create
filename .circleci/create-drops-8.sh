@@ -27,7 +27,7 @@ TERMINUS_DOES_SITE_EXIST()
 }
 
 # Check if the site already exists
-if TERMINUS_DOES_MULTIDEV_EXIST ${SITE_NAME}
+if TERMINUS_DOES_SITE_EXIST ${SITE_NAME}
 then
     echo -e "The site ${SITE_NAME} already exists, aborting site creation.\n"
     exit 0
