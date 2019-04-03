@@ -9,7 +9,7 @@ then
   exit 1
 fi
 
-if [ -f sites-to-create.json ]
+if [ ! -f sites-to-create.json ]
 then
   echo -e "\nsites-to-create.json is missing, aborting..."
   exit 1
