@@ -37,9 +37,9 @@ then
   exit 1
 fi
 
-if [ -z "$GITHUB_EMAIL" ]
+if [ -z "$GIT_EMAIL" ]
 then
-  echo -e "\nGITHUB_ORG is not defined, aborting..."
+  echo -e "\nGIT_EMAIL is not defined, aborting..."
   exit 1
 fi
 
