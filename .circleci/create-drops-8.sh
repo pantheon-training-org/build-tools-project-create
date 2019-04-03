@@ -14,7 +14,7 @@ TERMINUS_DOES_SITE_EXIST()
 {
     
     # Stash list of Pantheon multidev environments
-    PANTHEON_ORG_SITE_LIST="$(terminus multidev:list -n ${ORG_UUID} --format=list --field=Name)"
+    PANTHEON_ORG_SITE_LIST="$(terminus org:site:list -n ${ORG_UUID} --format=list --field=Name)"
 
     while read -r CURRENT_SITE; do
         if [[ "${CURRENT_SITE}" == "$1" ]]
