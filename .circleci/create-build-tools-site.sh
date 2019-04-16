@@ -36,7 +36,7 @@ fi
 # Create the site
 terminus build:project:create \
 --org="${GITHUB_ORG}" --team="${ORG_UUID}" --email="${GIT_EMAIL}" \
---admin-email="${CMS_EMAIL}" --admin-password="${CMS_PASS}" \
+--admin-email="${CMS_EMAIL}" --admin-password="${CMS_PASSWORD}" \
 --ci="circleci" --git="github" \
 --stability=dev ${BASE_PROJECT} ${SITE_NAME}
 

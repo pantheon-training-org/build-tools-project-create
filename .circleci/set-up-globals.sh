@@ -58,9 +58,9 @@ then
   exit 1
 fi
 
-if [ -z "$CMS_PASS" ]
+if [ -z "$CMS_PASSWORD" ]
 then
-  echo -e "\nCMS_PASS is not defined, aborting..."
+  echo -e "\nCMS_PASSWORD is not defined, aborting..."
   exit 1
 fi
 
