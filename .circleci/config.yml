@@ -27,7 +27,7 @@ jobs:
 
             - run:
                 name: create the site
-                command: ./.circleci/create-drops-8.sh
+                command: ./.circleci/create-build-tools-site.sh
                 no_output_timeout: 30m
 
 workflows:

@@ -52,15 +52,27 @@ then
   exit 1
 fi
 
-if [ -z "$DRUPAL_EMAIL" ]
+if [ -z "$CMS_EMAIL" ]
 then
-  echo -e "\nDRUPAL_EMAIL is not defined, aborting..."
+  echo -e "\nCMS_EMAIL is not defined, aborting..."
   exit 1
 fi
 
-if [ -z "$DRUPAL_PASS" ]
+if [ -z "$CMS_PASS" ]
 then
-  echo -e "\nDRUPAL_PASS is not defined, aborting..."
+  echo -e "\nCMS_PASS is not defined, aborting..."
+  exit 1
+fi
+
+if [ -z "$BASE_PROJECT" ]
+then
+  echo -e "\nBASE_PROJECT is not defined, aborting..."
+  exit 1
+fi
+
+if [ -z "$STUDENT_GIT_USERNAME" ]
+then
+  echo -e "\nSTUDENT_GIT_USERNAME is not defined, aborting..."
   exit 1
 fi
 
