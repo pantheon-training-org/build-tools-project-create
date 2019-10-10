@@ -45,7 +45,7 @@ terminus build:project:create \
 
 # Add the student to the Pantheon site
 echo -e "\nAdding the student to the Pantheon site ${SITE_NAME}."
-terminus site:team:add ${SITE_NAME} ${STUDENT_PANTHEON_EMAIL} team_member
+terminus site:team:add "$SITE_NAME" "$STUDENT_PANTHEON_EMAIL" team_member
 
 # Add the student to the GitHub repository
 echo -e "\nAdding the student to the GitHub repository ${SITE_NAME}."
