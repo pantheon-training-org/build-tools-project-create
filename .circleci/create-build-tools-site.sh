@@ -12,7 +12,7 @@ terminus auth:login --machine-token=${TERMINUS_MACHINE_TOKEN} > /dev/null 2>&1
 # Helper to see if a site exists already
 TERMINUS_DOES_SITE_EXIST()
 {
-    
+
     # Stash list of Pantheon multidev environments
     PANTHEON_ORG_SITE_LIST="$(terminus org:site:list -n ${ORG_UUID} --format=list --field=Name)"
 
@@ -41,7 +41,7 @@ terminus build:project:create \
 --stability=dev ${BASE_PROJECT} ${SITE_NAME}
 
 # Activate WordPress plugins on dev
-terminus wp ${SITE_NAME}.dev -- plugin activate --all
+#terminus wp ${SITE_NAME}.dev -- plugin activate --all
 
 # Add the student to the Pantheon site
 echo -e "\nAdding the student to the Pantheon site ${SITE_NAME}."
